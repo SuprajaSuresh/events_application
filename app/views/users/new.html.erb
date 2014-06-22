@@ -1,0 +1,33 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li> <%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1> Register </h1>
+  <div id="signup-box">
+    <%= form_for(@user) do |f| %>
+      <%= f.label :email %>*
+      <%= f.text_field :email, :placeholder => "Ex: user@example.com", :class => "input-a" %>
+      <br />
+      <%= f.label :password %>*
+      <%= f.password_field :password, :placeholder => "Minimum 8 Characters", :class => "input-a" %>
+       <br />
+      <%= f.label :password_confirmation, "Confirm your Password" %>*
+      <%= f.password_field :password_confirmation, :placeholder => "Re-type Password", :class => "input-a"  %>
+ 			<br />	
+      <%= f.label :name %>*
+      <%= f.text_field :name, :placeholder => "Name", :class => "input-a" %>
+      <br />
+	    <%= f.label :Gender %>*
+	    <%= f.radio_button :gender, "Male" %> Male
+	    <%= f.radio_button :gender, "Female" %> Female
+	    <%= f.radio_button :gender, "Other" %> Other
+	    <br />
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+</div>

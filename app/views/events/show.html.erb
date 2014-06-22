@@ -1,0 +1,30 @@
+<h1> <%= @event.name %> </h1>
+
+<div class='event-details left'>
+	<h5> Date: <%= format_date(@event) %> </h5>
+	<h5> Time: <%= format_time(@event) %> </h5>
+</div>
+
+<% if signed_in? %>
+	<% unless @event.past? %>
+		<div class="event-action right">
+			<%#= button_to "Attend Event", :class => "btn btn-primary" %>
+			<%= link_to "Attend Event", add_user_event_path(@event, :user_id => current_user.id), :method => :post %>
+		</div>
+	<% end %>
+<% end %>
+
+<div class='clear-both'>
+<div class="well">
+	<b>Guests:</b>
+	<% unless @event.users.empty? %>
+		<% @event.users.each do |user| %>
+			<ul>
+				<li> <%= user.name %> </li>
+				<li> <%= user.gender %> </li>
+			</ul>
+		<% end %>
+	<% else %>
+			<p> There are no guests yet! </p>
+	<% end %>
+</div>

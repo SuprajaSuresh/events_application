@@ -1,0 +1,12 @@
+<div class="navbar navbar-inverse" >
+  <a class="brand" href="#"> EVENTS PLANNER </a>
+  <ul class="nav right">
+    <%= link_to('Home', root_path()) %>
+    <% if signed_in? %>	
+    	<%= link_to "Logout", signout_path, method: "delete" %>
+    <% else %>	
+    	<%= link_to('Login', signin_path()) %>
+    	<%= link_to('Register', signup_path()) %>
+    <% end %>
+  </ul>  
+</div>
