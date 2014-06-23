@@ -18,3 +18,4 @@
 /tmp
 /public/sessions/*.html
 /public/index.html
+/vendor

@@ -3,20 +3,20 @@
 .right {
 	float: right;
 }
+
 .left {
 	float: left;
 }
+
 .clear-both {
 	clear: both;
 }
 
-.input-a{
-  border: 1px solid #bbb;
-  width: 50%;
-  padding: 10px;
-  margin-bottom: 15px;
+.navigation {
+	margin: 15px;
+	font-size :18px;
 }
 
-#signup-box {
-	width:50%
-}	
+#login-box, #signup-box {
+	width: 50%
+}

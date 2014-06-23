@@ -1,18 +1,18 @@
 <h1> <%= @event.name %> </h1>
 
 <div class='event-details left'>
-	<h5> Date: <%= format_date(@event) %> </h5>
-	<h5> Time: <%= format_time(@event) %> </h5>
-	<h5> Ticket Fee: <%= calculate_fee(@event, current_user) %> </h5>
+	<h5> <b> Date: </b> <%= format_date(@event) %> </h5>
+	<h5> <b> Time: </b> <%= format_time(@event) %> </h5>
+	<h5> <b> Ticket Fee: </b> Rs. <%= calculate_fee(@event, current_user) %> </h5>
 </div>
 
 <% if signed_in? %>
 	<% unless @event.past? %>
 		<div class="event-action right">
 			<% unless current_user.events.include?(@event) %>
-				<%= link_to "Attend Event", add_user_event_path(@event, :user_id => current_user.id), :method => :put %>
+				<%= button_to "Attend Event", add_user_event_path(@event, :user_id => current_user.id), :method => :put, :class => 'btn btn-primary' %>
 			<% else %>
-				<%= link_to "Unattend Event", remove_user_event_path(@event, :user_id => current_user.id), :method => :delete %>
+				<%= button_to "Unattend Event", remove_user_event_path(@event, :user_id => current_user.id), :method => :delete, :class => 'btn btn-primary' %>
 			<% end %>
 		</div>
 	<% end %>

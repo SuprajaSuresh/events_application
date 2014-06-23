@@ -9,25 +9,30 @@
 <% end %>
 
 <h1> Register </h1>
-<div id="signup-box">
+<div class="well" id="signup-box">
   <%= form_for(@user) do |f| %>
-    <%= f.label :email %>*
-    <%= f.text_field :email, :placeholder => "Ex: user@example.com", :class => "input-a" %>
-    <br />
-    <%= f.label :password %>*
-    <%= f.password_field :password, :placeholder => "Minimum 8 Characters", :class => "input-a" %>
-     <br />
-    <%= f.label :password_confirmation, "Confirm your Password" %>*
-    <%= f.password_field :password_confirmation, :placeholder => "Re-type Password", :class => "input-a"  %>
-			<br />	
-    <%= f.label :name %>*
-    <%= f.text_field :name, :placeholder => "Name", :class => "input-a" %>
-    <br />
-    <%= f.label :Gender %>*
-    <%= f.radio_button :gender, "Male" %> Male
-    <%= f.radio_button :gender, "Female" %> Female
-    <%= f.radio_button :gender, "Other" %> Other
-    <br />
+    <div class="form-group">
+      <%= f.label :email %>*
+      <%= f.text_field :email, :placeholder => "Ex: user@example.com", :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>*
+      <%= f.password_field :password, :placeholder => "Minimum 8 Characters", :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password_confirmation, "Confirm your Password" %>*
+      <%= f.password_field :password_confirmation, :placeholder => "Re-type Password", :class => "form-control" %>
+		</div>
+    <div class="form-group">	
+      <%= f.label :name %>*
+      <%= f.text_field :name, :placeholder => "Name", :class => "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :Gender %>*
+      <%= f.radio_button :gender, "Male" %> Male
+      <%= f.radio_button :gender, "Female" %> Female
+      <%= f.radio_button :gender, "Other" %> Other
+    </div>
     <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
   <% end %>
 </div>
