@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-  attr_accessible :date_and_time, :name
+  attr_accessible :date_and_time, :name, :ticket_fee
 
   has_and_belongs_to_many :users
 

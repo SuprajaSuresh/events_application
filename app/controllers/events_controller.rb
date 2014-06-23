@@ -9,9 +9,19 @@ class EventsController < ApplicationController
 	end
 
 	def add_user
-		@events_users = EventsUsers.new(:event_id => params[:id], :user_id => params[:user_id])
-	  if @events_users.save
-	   	redirect_to :back	   	
-	  end
+		@event = Event.find(params[:id])
+		@user = User.find(params[:user_id])
+		if @event.users << @user
+			redirect_to :back
+		end
 	end
+
+	def remove_user
+		@event = Event.find(params[:id])
+		@user = User.find(params[:user_id])
+		if @event.users.delete(@user)
+			redirect_to :back
+		end
+	end
+
 end
